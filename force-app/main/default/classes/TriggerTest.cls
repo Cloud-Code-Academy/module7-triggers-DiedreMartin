@@ -108,14 +108,14 @@ public with sharing class TriggerTest {
 
         // Retrieve the accounts again
         List<Account> insertedAccounts = [SELECT Id, 
-                                          BillingStreet, 
-                                          BillingCity, 
-                                          BillingState, 
-                                          BillingPostalCode, 
-                                          BillingCountry 
-                                          FROM Account 
-                                          WHERE Id IN :accountsToInsert
-                                          ORDER BY AnnualRevenue ASC];
+                                        BillingStreet, 
+                                        BillingCity, 
+                                        BillingState, 
+                                        BillingPostalCode, 
+                                        BillingCountry 
+                                        FROM Account 
+                                        WHERE Id IN :accountsToInsert
+                                        ORDER BY AnnualRevenue ASC];
 
         // Assert that the Billing Address fields have been correctly copied from the Shipping Address for each account
         for (Integer i = 0; i < insertedAccounts.size(); i++) {
